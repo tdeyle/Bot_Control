@@ -461,7 +461,11 @@
       <created>1380770459415</created>
       <updated>1380770459415</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Started to write sensor_map.py object.">
+      <created>1380770505324</created>
+      <updated>1380770505324</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
