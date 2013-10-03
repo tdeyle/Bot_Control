@@ -43,7 +43,7 @@ class SensorMap:
         self.top.title(type)
         self.top.mainloop()
 
-    def anothermethod(self):
+    def determineHits(self):
         """
         Takes the distance_readings and determines whether it an obstacle was found. It marks the information
          a map.
