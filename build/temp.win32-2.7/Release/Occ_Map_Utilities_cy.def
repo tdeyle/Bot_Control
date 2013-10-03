@@ -1,0 +1,3 @@
+LIBRARY Occ_Map_Utilities_cy.pyd
+EXPORTS
+initOcc_Map_Utilities_cy

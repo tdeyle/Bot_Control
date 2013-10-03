@@ -1,0 +1,3 @@
+LIBRARY Robot_Control_cy.pyd
+EXPORTS
+initRobot_Control_cy
