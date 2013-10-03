@@ -13,18 +13,19 @@ from Tkinter import *
 
 class SensorMap:
     def __init__(self, type, range, resolution, offset, FOV=360, window=[200,200]):
-        """ (int, int, int, str) -> list[ints]
+        """ (str, int, int, list[int], int, list[int]) -> list[ints]
 
         Builds a 200px x 200px map that represents a sensor - sonar, or laser.
+        :param type: Type and location of sensor, ex., Left Sonar, Laser
+        :param range: Range of Sensor in mm
+        :param resolution: Resolution of map in mm
+        :param offset: integer list consisting of Offset of Sensor along x, y and angle to robot center.
+        :param FOV: default 360 degrees, laser sensor
+        :param window: default 200 x 200px
         """
         self.resolution = resolution
         self.width, self.height = range, range
         self.x_offset, self.y_offset, self.ang_offset = offset
-
-        if type == "Sonar":
-            self.FOV = FOV
-            self.width = int(round(((tan(radians(float(FOV)/2)) * range) * 2) + (resolution * 2)))
-            self.height = range + (resolution * 2)
 
         self.top = Tk()
         self.world_width, self.world_height = self.width, self.height
