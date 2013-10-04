@@ -35,6 +35,8 @@ class Window:
         self.laser_window_width = self.window_width
         self.laser_window_height = self.window_height/4
 
+        self.sonar_window_width, self.sonar_window_height = [200, 200]
+
         self.origin = [self.window_width/2, self.window_height/2]
 
         # scale factor used in screen = world * scale
@@ -58,20 +60,44 @@ class Window:
         left_side.pack(side=LEFT)
 
         right_side = Frame(window)
-        right_side.pack(side=RIGHT)
+        right_side.pack(side=TOP)
+
+        #LeftSonar = Frame(right_side)
+        #CenterSonar = Frame(right_side)
+        #RightSonar = Frame(right_side)
+        #LeftSonar.pack(fill=Y, side=TOP, expand=TRUE)
+        #CenterSonar.pack()
+        #RightSonar.pack()
+
+        self.LeftSonar_canvas = Canvas(right_side,
+                                       bg="Red",
+                                       height=self.sonar_window_height,
+                                       width=self.sonar_window_width)
+        self.CenterSonar_canvas = Canvas(right_side,
+                                       bg="Green",
+                                       height=self.sonar_window_height,
+                                       width=self.sonar_window_width)
+        self.RightSonar_canvas = Canvas(right_side,
+                                       bg="Purple",
+                                       height=self.sonar_window_height,
+                                       width=self.sonar_window_width)
+        self.LeftSonar_canvas.pack()
+        self.CenterSonar_canvas.pack()
+        self.RightSonar_canvas.pack()
+
 
         occ_map = Frame(left_side)
         occ_map.pack(side=TOP, fill=BOTH)
         self.occmap_canvas = Canvas(occ_map, bg="grey", height=self.window_height, width=self.window_width)
         self.occmap_canvas.pack(fill=BOTH, expand=1)
 
-        options = Frame(right_side, height=self.window_height+self.window_height/4, width=self.window_width/4)
-        options.pack(side=RIGHT, fill=BOTH, expand=1)
-
-        self.button1 = Button(options, text="Hi")
-        self.button1.grid(column=0, row=0, sticky="n")
-        self.entry1 = Entry(options)
-        self.entry1.grid(column=0, row=1, sticky="e")
+        #options = Frame(right_side, height=self.window_height+self.window_height/4, width=self.window_width/4)
+        #options.pack(side=RIGHT, fill=BOTH, expand=1)
+        #
+        #self.button1 = Button(options, text="Hi")
+        #self.button1.grid(column=0, row=0, sticky="n")
+        #self.entry1 = Entry(options)
+        #self.entry1.grid(column=0, row=1, sticky="e")
 
         laserreadout = Frame(left_side)
         laserreadout.pack(side=BOTTOM)
@@ -315,8 +341,8 @@ class Window:
         # Or, leave white and paint it red.
 
         for i in range(360):
-            self.laserreadout_canvas.create_rectangle(i * 3.33,
-                                             150, i * 3.33 + 3.33,
+            self.laserreadout_canvas.create_rectangle(i * self.window_width / 360.0,
+                                             150, i * self.window_width / 360.0 + self.window_width / 360.0,
                                              150 - (distance[i] / 40),
                                              fill="red",
                                              tag="Laser")
