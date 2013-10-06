@@ -29,7 +29,7 @@ from swampy.Lumpy import Lumpy
 from time import *
 
 # Setup variables
-window_size = [1200, 600]
+window_size = [1440, 720]
 world_size = [12000, 6000]
 grid_size = [50,50]
 max_range = 6000

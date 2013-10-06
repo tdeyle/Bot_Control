@@ -85,7 +85,6 @@ class Window:
         self.CenterSonar_canvas.pack()
         self.RightSonar_canvas.pack()
 
-
         occ_map = Frame(left_side)
         occ_map.pack(side=TOP, fill=BOTH)
         self.occmap_canvas = Canvas(occ_map, bg="grey", height=self.window_height, width=self.window_width)

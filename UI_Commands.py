@@ -64,6 +64,10 @@ def scan_and_update(robot, window, sim_map, occ_map):
                      robot.robot_wheel_length,
                      robot.robot_wheel_width)
 
+    window.laserreadout_canvas.delete('Laser')
+    window.drawLaser(distance)
+
+
     print "Scanning Finished"
 
 def change_move_step(robot, step_amount):
